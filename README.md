@@ -7,7 +7,10 @@ Note, because of the low-constraint nature - in an attempt to maximize potential
   
   Feel free to change settings to see what breaks and what doesn't, but assuming compiler optimizations are turned off then the system provided as is should be quite performant
     and free of deadlock.
-    
+
+To set the threads to sleep, change the spin sleep macro definition in the header file to 0, for spin set it to 1.
+  Change it beyond that is ill-advised and will likely spawn runtime errors.
+
 While under the MIT License, please cite me if reusing this is your own work, and please enjoy!
 
 Example cases for the functions that are usuable for the thread dispatch are provided in another repository, a research case on parallel collision detection.
