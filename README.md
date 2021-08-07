@@ -10,6 +10,9 @@ Note, because of the low-constraint nature - in an attempt to maximize potential
 
 To set the threads to sleep, change the spin sleep macro definition in the header file to 0, for spin set it to 1.
   Change it beyond that is ill-advised and will likely spawn runtime errors.
+  Spin can be substantially faster, but if the work for the threads is straining then overall greater performance might be found with sleeping.
+    Notably, spin keeps the threads running at full capacity so can cause declines in clock performance as high temperatures are sustained.
+      Note, this might be a useful basis to build a CPU benchmark...
 
 While under the MIT License, please cite me if reusing this is your own work, and please enjoy!
 
