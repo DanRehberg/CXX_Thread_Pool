@@ -1,2 +1,13 @@
 # CXX_Thread_Pool
 A thread pool for testing parallel algorithms and dispatch design in C++. Synchronization of waiting threads by spin-lock or sleeping with conditionals.
+
+Note, because of the low-constraint nature - in an attempt to maximize potential performance - modifying the variables in the thread pool might eventually lead to deadlock.
+  Specifically, with sleeping a time critical tactic is performed with initializing a lock guard for the main thread before it gives control to the daemon threads.
+  Additionally, the volatile attribute of the boolean values for the spinlock case are important to ensure that the system does not think a locally cached value is valid.
+  
+  Feel free to change settings to see what breaks and what doesn't, but assuming compiler optimizations are turned off then the system provided as is should be quite performant
+    and free of deadlock.
+    
+While under the MIT License, please cite me if reusing this is your own work, and please enjoy!
+
+Example cases for the functions that are usuable for the thread dispatch are provided in another repository, a research case on parallel collision detection.
